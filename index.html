@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tiia Suominen – Portfolio</title>
-  <meta name="description" content="Etunimi Sukunimin henkilökohtainen portfolio: esittely, osaaminen, työkokemus ja harrastukset.">
+  <meta name="description" content="Tiia Suomisen henkilökohtainen portfolio: esittely, osaaminen, työkokemus ja harrastukset.">
   <style>
     :root {
       --bg: #f4f6f7;
@@ -28,7 +28,7 @@
 
     header { background: var(--ink); color: #fff; padding: 3rem 0; }
     header .wrap { display: flex; align-items: center; gap: 2rem; }
-    header img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #fff; flex-shrink: 0; background: #fff; }
+    header img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #fff; flex-shrink: 0; background: #fff; object-fit: cover; }
     h1 { margin: 0 0 .4rem; font-size: 2.4rem; line-height: 1.15; }
     .lead { margin: 0; font-size: 1.15rem; color: #e3ebf0; }
 
@@ -41,96 +41,5 @@
     section { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; }
     h2 { margin-top: 0; color: var(--accent); font-size: 1.6rem; }
     h3 { margin: 1.2rem 0 .3rem; font-size: 1.1rem; }
-    p { margin: .5rem 0; max-width: 70ch; }
-    .meta { color: var(--muted); font-size: .95rem; margin: 0; }
-
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 2rem; }
-    ul.plain { margin: .3rem 0; padding-left: 1.2rem; }
-
-    footer { text-align: center; color: var(--muted); padding: 1.5rem 1.25rem 2.5rem; font-size: .95rem; }
-
-    @media (max-width: 640px) {
-      header .wrap { flex-direction: column; text-align: center; }
-      h1 { font-size: 1.9rem; }
-      section { padding: 1.25rem; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <img src="IMG_4287.jpg" alt="Kuvassa kissa">
-      <div>
-        <h1>Tiia Suominen</h1>
-        <p class="lead" id="intro"><span id="age">–</span>-vuotias opiskelija.</p>
-      </div>
-    </div>
-  </header>
-
-  <nav aria-label="Sivun osiot">
-    <ul>
-      <li><a href="#esittely">Esittely</a></li>
-      <li><a href="#osaaminen">Osaaminen</a></li>
-      <li><a href="#kokemus">Työkokemus</a></li>
-      <li><a href="#harrastukset">Harrastukset</a></li>
-    </ul>
-  </nav>
-
-  <main class="wrap">
-    <section id="esittely">
-      <h2>Esittely</h2>
-      <p>Hei! Opiskelen tietojenkäsittelyä ja tämä sivu on HTML-, CSS- ja JavaScript-kokonaisuus osaamisestani.</p>
-    </section>
-
-    <section id="osaaminen">
-      <h2>Osaaminen</h2>
-      <div class="skills">
-        <div>
-          <h3>Verkkokehitys</h3>
-          <ul class="plain">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScriptin perusteet</li>
-          </ul>
-        </div>
-    </section>
-
-    <section id="kokemus">
-      <h2>Työkokemus</h2>
-      <h3>Kokoonpanotyöntekijä, ABB</h3>
-      <p class="meta">Kokoonpano</p>
-      <p>Työskentelen kokoonpanossa, jossa kokoan pääasiassa kytkimiä. Työ vaati tarkkuutta, vaiheittaista etenemistä ja tuotteen toimivuuden varmistamista.</p>
-    </section>
-
-    <section id="harrastukset">
-      <h2>Harrastukset ja kiinnostuksen kohteet</h2>
-      <ul class="plain">
-        <li>Ulkoilu ja käsityöt</li>
-        <li>Teknologia ja pelaaminen</li>
-        <li>Musiikki</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year">2026</span> Etunimi Sukunimi</p>
-  </footer>
-
-  <script>
-    const syntymapaiva = new Date(2004, 12, 23);
-
-    function laskeIka(syntynyt) {
-      const nyt = new Date();
-      let ika = nyt.getFullYear() - syntynyt.getFullYear();
-      const eiVielaSyntymapaivaa =
-        nyt.getMonth() < syntynyt.getMonth() ||
-        (nyt.getMonth() === syntynyt.getMonth() && nyt.getDate() < syntynyt.getDate());
-      if (eiVielaSyntymapaivaa) ika--;
-      return ika;
-    }
-
-    document.getElementById("age").textContent = laskeIka(syntymapaiva);
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    section h2 + h3 { margin-top: 0; }
+    p { margin: .5rem 0;
