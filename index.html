@@ -42,4 +42,98 @@
     h2 { margin-top: 0; color: var(--accent); font-size: 1.6rem; }
     h3 { margin: 1.2rem 0 .3rem; font-size: 1.1rem; }
     section h2 + h3 { margin-top: 0; }
-    p { margin: .5rem 0;
+    p { margin: .5rem 0; max-width: 70ch; }
+    .meta { color: var(--muted); font-size: .95rem; margin: 0; }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 2rem; }
+    .skills h3 { margin-top: 0; }
+    ul.plain { margin: .3rem 0; padding-left: 1.2rem; }
+
+    footer { text-align: center; color: var(--muted); padding: 1.5rem 1.25rem 2.5rem; font-size: .95rem; }
+
+    @media (max-width: 640px) {
+      header .wrap { flex-direction: column; text-align: center; }
+      h1 { font-size: 1.9rem; }
+      section { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <img src="IMG_4287.jpg" alt="Kuvassa kissa">
+      <div>
+        <h1>Tiia Suominen</h1>
+        <p class="lead" id="intro"><span id="age">–</span>-vuotias opiskelija</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Sivun osiot">
+    <ul>
+      <li><a href="#esittely">Esittely</a></li>
+      <li><a href="#osaaminen">Osaaminen</a></li>
+      <li><a href="#kokemus">Työkokemus</a></li>
+      <li><a href="#harrastukset">Harrastukset</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+    <section id="esittely">
+      <h2>Esittely</h2>
+      <p>Hei! Opiskelen tietojenkäsittelyä ja tämä sivu on HTML-, CSS- ja JavaScript-kokonaisuus osaamisestani.</p>
+    </section>
+
+    <section id="osaaminen">
+      <h2>Osaaminen</h2>
+      <div class="skills">
+        <div>
+          <h3>Verkkokehitys</h3>
+          <ul class="plain">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScriptin perusteet</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="kokemus">
+      <h2>Työkokemus</h2>
+      <h3>Kokoonpanotyöntekijä, ABB</h3>
+      <p>Työskentelen kokoonpanossa, jossa kokoan pääasiassa kytkimiä. Työ vaati tarkkuutta, vaiheittaista etenemistä ja tuotteen toimivuuden varmistamista.</p>
+    </section>
+
+    <section id="harrastukset">
+      <h2>Harrastukset</h2>
+      <ul class="plain">
+        <li>Ulkoilu ja käsityöt</li>
+        <li>Teknologia ja pelaaminen</li>
+        <li>Musiikki</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2026</span> Tiia Suominen</p>
+  </footer>
+
+  <script>
+    // Kuukausi on 0–11 (tammikuu = 0, joulukuu = 11)
+    const syntymapaiva = new Date(2004, 11, 23);
+
+    function laskeIka(syntynyt) {
+      const nyt = new Date();
+      let ika = nyt.getFullYear() - syntynyt.getFullYear();
+      const eiVielaSyntymapaivaa =
+        nyt.getMonth() < syntynyt.getMonth() ||
+        (nyt.getMonth() === syntynyt.getMonth() && nyt.getDate() < syntynyt.getDate());
+      if (eiVielaSyntymapaivaa) ika--;
+      return ika;
+    }
+
+    document.getElementById("age").textContent = laskeIka(syntymapaiva);
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
