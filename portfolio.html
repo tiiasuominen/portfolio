@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiia Suominen — Portfolio</title>
+<meta name="description" content="Tiia Suomisen henkilökohtainen portfolio-sivu: tietojenkäsittelyn opiskelija Vaasan ammattikorkeakoulussa, ABB:n kokoonpanossa työskentelevä ja opiskelijaedustaja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16273d;
+    --paper:#f3f1ea;
+    --paper-dim:#ece8dd;
+    --teal:#2f7a78;
+    --teal-dark:#1f5654;
+    --amber:#e2a33d;
+    --ink:#1f2320;
+    --ink-soft:#4a5057;
+    --line:#d8d3c4;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Work Sans", system-ui, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    color:var(--navy);
+    margin:0;
+    line-height:1.15;
+  }
+
+  p{
+    max-width:62ch;
+    color:var(--ink-soft);
+  }
+
+  a{color:var(--teal-dark);}
+
+  img{max-width:100%;display:block;}
+
+  /* ---------- Header / Hero ---------- */
+
+  header.hero{
+    padding:4rem 1.5rem 3rem;
+    background:var(--navy);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero-inner{
+    max-width:960px;
+    margin:0 auto;
+    display:grid;
+    gap:2.5rem;
+    align-items:center;
+  }
+
+  .hero-text .kicker{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.05rem;
+    color:var(--amber);
+    margin:0 0 0.6rem;
+  }
+
+  .hero-text h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    color:var(--paper);
+  }
+
+  .hero-text .role{
+    margin-top:0.9rem;
+    font-size:1.15rem;
+    color:#d7dbe2;
+    max-width:46ch;
+  }
+
+  .age-line{
+    display:inline-block;
+    margin-top:1.4rem;
+    padding:0.55rem 1rem;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius);
+    font-size:0.98rem;
+    color:var(--paper);
+  }
+
+  .age-line strong{color:var(--amber); font-weight:600;}
+
+  .hero-art{
+    justify-self:center;
+    width:100%;
+    max-width:280px;
+  }
+
+  /* ---------- Layout ---------- */
+
+  main{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  section{
+    padding:3.5rem 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  section:last-of-type{border-bottom:none;}
+
+  section > h2{
+    font-size:1.8rem;
+    margin-bottom:1.6rem;
+  }
+
+  /* ---------- Esittely ---------- */
+
+  .esittely-grid{
+    display:grid;
+    gap:1.5rem;
+  }
+
+  .fact-list{
+    list-style:none;
+    margin:1.5rem 0 0;
+    padding:0;
+    display:grid;
+    gap:0.7rem;
+  }
+
+  .fact-list li{
+    padding-left:1.1rem;
+    border-left:2px solid var(--teal);
+    color:var(--ink-soft);
+  }
+
+  .fact-list strong{color:var(--navy);}
+
+  /* ---------- Osaaminen ---------- */
+
+  .skill-groups{
+    display:grid;
+    gap:2rem;
+  }
+
+  .skill-groups h3{
+    font-size:1.15rem;
+    margin-bottom:0.7rem;
+  }
+
+  .skill-groups ul{
+    margin:0;
+    padding-left:1.2rem;
+    color:var(--ink-soft);
+  }
+
+  .skill-groups li{margin-bottom:0.35rem;}
+
+  /* ---------- Harrastukset ---------- */
+
+  .interest-cards{
+    display:grid;
+    gap:1.2rem;
+  }
+
+  .interest-card{
+    padding:1.3rem 1.4rem;
+    background:var(--paper-dim);
+    border-left:3px solid var(--amber);
+  }
+
+  .interest-card h3{
+    font-size:1.05rem;
+    margin-bottom:0.35rem;
+  }
+
+  .interest-card p{
+    margin:0;
+    font-size:0.97rem;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    background:var(--navy);
+    color:#c9cdd4;
+    padding:2.2rem 1.5rem;
+    text-align:center;
+    font-size:0.92rem;
+  }
+
+  footer a{color:var(--amber);}
+
+  /* ---------- Responsive ---------- */
+
+  @media (min-width:640px){
+    .hero-inner{
+      grid-template-columns:1.3fr 1fr;
+      text-align:left;
+    }
+    .hero-art{justify-self:end;}
+    .esittely-grid{grid-template-columns:1fr 220px;}
+    .esittely-grid img{order:2;}
+    .skill-groups{grid-template-columns:repeat(3, 1fr);}
+    .interest-cards{grid-template-columns:repeat(3, 1fr);}
+  }
+
+  @media (max-width:639px){
+    header.hero{text-align:center;}
+    .hero-text p, .hero-text .role{margin-left:auto; margin-right:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="kicker">Vaasa, Suomi</p>
+      <h1>Tiia Suominen</h1>
+      <p class="role">Tietojenkäsittelyn opiskelija, ABB:n kokoonpanossa työskentelevä ja Vaasan ammattikorkeakoulun edustajiston jäsen.</p>
+      <p class="age-line">Olen <strong><span id="age">–</span>-vuotias</strong> opiskelija</p>
+    </div>
+    <img class="hero-art" alt="Kuvitus kannettavasta tietokoneesta ja robottikäsivarresta, jotka symboloivat IT-opintoja ja työtä teollisuudessa" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='150' r='140' fill='%231f5654' opacity='0.35'/%3E%3Crect x='55' y='150' width='150' height='95' rx='6' fill='%23f3f1ea'/%3E%3Crect x='70' y='165' width='120' height='68' rx='2' fill='%2316273d'/%3E%3Crect x='40' y='245' width='180' height='10' rx='3' fill='%23e2a33d'/%3E%3Cpath d='M215 235 L215 150 Q215 120 245 118 L245 95' stroke='%23e2a33d' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='245' cy='95' r='14' fill='%23e2a33d'/%3E%3Ccircle cx='245' cy='95' r='5' fill='%2316273d'/%3E%3C/svg%3E">
+  </div>
+</header>
+
+<main>
+
+  <section id="esittely">
+    <h2>Esittely</h2>
+    <div class="esittely-grid">
+      <div>
+        <p>Moikka! Olen Tiia, ja opiskelen tietojenkäsittelyä Vaasan ammattikorkeakoulussa (VAMK). Opintojen ohella työskentelen ABB:n kokoonpanossa, mikä on antanut hyvän kuvan siitä, miten tekniikka ja teollisuus toimivat käytännössä — ei pelkästään koodin, vaan myös laitteiden ja prosessien tasolla.</p>
+        <p>Olen mukana myös Vaasan ammattikorkeakoulun edustajistossa, jossa pääsen vaikuttamaan opiskelijoiden asioihin ja oppimaan, miten päätöksenteko korkeakoulussa käytännössä toimii.</p>
+        <ul class="fact-list">
+          <li><strong>Syntynyt:</strong> 23.12.2004</li>
+          <li><strong>Opiskelupaikka:</strong> Vaasan ammattikorkeakoulu, tietojenkäsittely</li>
+          <li><strong>Työ:</strong> ABB, kokoonpano</li>
+          <li><strong>Luottamustehtävä:</strong> VAMK:n edustajiston jäsen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="osaaminen">
+    <h2>Osaaminen</h2>
+    <div class="skill-groups">
+      <div>
+        <h3>Opinnoista</h3>
+        <ul>
+          <li>Web-kehityksen perusteet (HTML, CSS, JavaScript)</li>
+          <li>Tietokantojen perusteet</li>
+          <li>Ohjelmoinnin perusrakenteet</li>
+          <li>Projektityöskentely ryhmässä</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Työelämästä</h3>
+        <ul>
+          <li>Tarkkuutta ja laatutietoisuutta kokoonpanotyöstä</li>
+          <li>Prosessien ja ohjeiden noudattaminen teollisessa ympäristössä</li>
+          <li>Tiimityöskentely tuotantolinjalla</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Luottamustehtävästä</h3>
+        <ul>
+          <li>Kokousten seuraaminen ja valmistautuminen</li>
+          <li>Opiskelijoiden äänen vieminen päätöksentekoon</li>
+          <li>Viestintä eri sidosryhmien kanssa</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="harrastukset">
+    <h2>Vapaa-aika</h2>
+    <div class="interest-cards">
+      <div class="interest-card">
+        <h3>Opiskelijatoiminta</h3>
+        <p>Edustajiston työn kautta olen päässyt mukaan myös laajemmin VAMK:n yhteisöön ja tapahtumiin.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Tekniikka</h3>
+        <p>Kiinnostun siitä, miten ohjelmistot ja teollisuuden laitteet toimivat yhdessä — sekä koodin että koneiden tasolla.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Uuden oppiminen</h3>
+        <p>Viihdyn tilanteissa, joissa pääsen yhdistämään opiskelua ja käytännön työtä.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Tiia Suominen · Vaasa · <a href="mailto:tiia.suominen@example.com">tiia.suominen@example.com</a></p>
+  <p>&copy; <span id="year"></span> Tiia Suominen</p>
+</footer>
+
+<script>
+  // Lasketaan ikä automaattisesti syntymäajan perusteella
+  function laskeIka(syntymaaika) {
+    const tanaan = new Date();
+    let ika = tanaan.getFullYear() - syntymaaika.getFullYear();
+    const eiOleVielaOllutSyntymapaivaa =
+      tanaan.getMonth() < syntymaaika.getMonth() ||
+      (tanaan.getMonth() === syntymaaika.getMonth() && tanaan.getDate() < syntymaaika.getDate());
+    if (eiOleVielaOllutSyntymapaivaa) {
+      ika -= 1;
+    }
+    return ika;
+  }
+
+  const syntymaaika = new Date(2004, 11, 23); // 23.12.2004 (kuukaudet 0-indeksoituja)
+  document.getElementById("age").textContent = laskeIka(syntymaaika);
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
